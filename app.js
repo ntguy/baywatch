@@ -15,14 +15,37 @@ const app = {
   renderListItem(flick) {
     const item = document.createElement('li')
     item.textContent = flick.name
+    item.style.backgroundColor = 'lightgray'
     const favbtn = document.createElement('button')
+    const delbtn = document.createElement('button')
+
     favbtn.textContent = 'Fav'
+    delbtn.textContent = 'Delete'
     favbtn.style.backgroundColor = 'cornflowerBlue'
-    favbtn.style.marginLeft = '40px'
+    delbtn.style.backgroundColor = "Red"
+    favbtn.style.position = 'absolute'
+    favbtn.style.right = '60%'
+    delbtn.style.position = 'absolute'
+    delbtn.style.right = '40%'
+    favbtn.style.marginTop = '4px'
+    delbtn.style.marginTop = '4px'
+    favbtn.style.borderRadius = '7px'
+    delbtn.style.borderRadius = '7px'
+    favbtn.style.width = '6rem'
+    delbtn.style.width = '8rem'
+
+
+    favbtn.addEventListener('click', ()=> {
+        if (item.style.backgroundColor == 'lightgray') {
+            item.style.backgroundColor = 'gold'}
+        else {item.style.backgroundColor = 'lightgray' }
+                    })
+    delbtn.addEventListener('click', ()=> {item.parentNode.removeChild(item)})
     item.appendChild(favbtn)
+    item.appendChild(delbtn)
     return item
   },
-
+    
   handleSubmit(ev) {
     ev.preventDefault()
     const f = ev.target
@@ -37,6 +60,8 @@ const app = {
 
     this.max ++
   },
+
+
 }
 
 app.init({
