@@ -38,9 +38,10 @@ const app = {
     favbtn.addEventListener('click', ()=> {
         if (item.style.backgroundColor == 'lightgray') {
             item.style.backgroundColor = 'gold'}
-        else {item.style.backgroundColor = 'lightgray' }
-                    })
-    delbtn.addEventListener('click', ()=> {item.parentNode.removeChild(item)})
+        else {item.style.backgroundColor = 'lightgray' }})
+    delbtn.addEventListener('click', ()=> {
+        item.parentNode.removeChild(item)
+        this.flicks.splice(flick.id, 1)})
     item.appendChild(favbtn)
     item.appendChild(delbtn)
     return item
@@ -56,7 +57,9 @@ const app = {
 
     const listItem = this.renderListItem(flick)
     this.flicks[flick.id - 1] = flick.name
+    this.flicks = this.flicks.filter(function(el) {return el !== undefined})
     this.list.appendChild(listItem)
+    console.log(this.flicks)
 
     this.max ++
   },
