@@ -145,6 +145,7 @@ const app = {
     if(this.off) {
       if (typeof filt !== 'undefined') {this.off = false}
       f.filterText.readOnly = true;
+      f.filterText.placeholder = "Press Enter or button to return"
       for (i = 0; i < this.flicks.length; i++) {
         if ((this.flicks[i].name.toLowerCase()).indexOf(filt.toLowerCase()) == -1) {
           listItem[i].style.display = 'none'}
@@ -155,6 +156,7 @@ const app = {
       for (i = 0; i < this.flicks.length; i++) {
         listItem[i].style.display = 'flex'
         f.filterText.readOnly = false;
+        f.filterText.placeholder = "Submit a Flick"
       }
 
     }

@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 
 html {
-  background: url(splode.jpg) no-repeat center center fixed; 
+  background: url(Bay.jpg) no-repeat center center; 
+  background-position: 0px -80px;
   background-size: cover;
 }
 
+p {
+  visibility: hidden;
+}
 body {
   background: transparent;
   padding-top: 1rem;
@@ -23,7 +27,7 @@ h1 {
                0 0 150px #209ab2;
 }
 h1 small {
-  color: whitesmoke;
+  color: black;
   font-size: 60%;
   text-shadow: none;
 }
@@ -84,11 +88,10 @@ h1 small {
 
 .flick-name {
   padding: 0 0.5rem;
-  color: White;
 }
 
 .flick {
-  background-color: black;
+  background-image: linear-gradient(to right,#2272ff, #005288);
   padding: 4px 0px 4px 4px;
   margin-top: -2px;
   margin-bottom: -2px;
