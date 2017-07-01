@@ -141,19 +141,20 @@ const app = {
     const f = ev.target
     const list = document.getElementById("flick-list")
     const listItem = list.getElementsByTagName("li")
+    const filt = f.filterText.value
     if(this.off) {
-      this.off = false
-      document.querySelector('#filterBtn').textContent = "🢀"
+      if (typeof filt !== 'undefined') {this.off = false}
+      f.filterText.readOnly = true;
       for (i = 0; i < this.flicks.length; i++) {
-        if ((this.flicks[i].name.toLowerCase()).indexOf(f.filterText.value.toLowerCase()) == -1) {
+        if ((this.flicks[i].name.toLowerCase()).indexOf(filt.toLowerCase()) == -1) {
           listItem[i].style.display = 'none'}
       }
     }
     else {
       this.off = true
-      document.querySelector('#filterBtn').textContent = "✔"
       for (i = 0; i < this.flicks.length; i++) {
         listItem[i].style.display = 'flex'
+        f.filterText.readOnly = false;
       }
 
     }
