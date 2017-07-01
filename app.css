@@ -34,17 +34,31 @@ h1 small {
   height: 100px;
 }
 
-.input-group-button{
+#submitBtn{
   margin-left: .5rem;
   background:    #4393db;
   background:    linear-gradient(red, orange 50%, red);
   border:        2px solid black;
   border-radius: 50%;
-  padding:       8px 20px;
+  padding:       6px 20px;
   transition-duration: 0.6s;
 }
 
-.input-group-button:hover {
+#submitBtn:hover {
+  border-radius: 10%;
+}
+
+#filterBtn{
+  margin-left: .5rem;
+  background:    #4393db;
+  background:    linear-gradient(orange, red 50%, orange);
+  border:        2px solid black;
+  border-radius: 50%;
+  padding:       0px 20px;
+  transition-duration: 0.6s;
+}
+
+#filterBtn:hover {
   border-radius: 10%;
 }
 
@@ -74,6 +88,9 @@ h1 small {
 
 .flick {
   background-color: black;
+  padding: 4px 0px 4px 4px;
+  margin-top: -2px;
+  margin-bottom: -2px;
 }
 
 .flick .actions.button-group {

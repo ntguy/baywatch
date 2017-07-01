@@ -4,7 +4,13 @@ const app = {
     this.max = 0
     this.list = document.querySelector(selectors.listSelector)
     this.template = document.querySelector(selectors.templateSelector)
-
+    
+    document
+      .querySelector(selectors.filterSelector)
+      .addEventListener(
+        'submit', 
+        this.filterSubmit.bind(this))
+    
     document
       .querySelector(selectors.formSelector)
       .addEventListener(
@@ -44,6 +50,7 @@ const app = {
   upFlick(flick, ev) {
     const listItem = ev.target.closest('.flick')
     const i = this.flicks.indexOf(flick)
+
     if(i > 0) {
       const temp = this.flicks[i]
       this.flicks[i] = this.flicks[i-1]
@@ -127,9 +134,15 @@ const app = {
     this.max ++
     f.reset()
   },
+
+  filterSubmit(ev) {
+    ev.preventDefault()
+    console.log("Hi")
+  },
 }
 
 app.init({
+  filterSelector: 'form#filter-form',
   formSelector: 'form#flick-form',
   listSelector: '#flick-list',
   templateSelector: '.flick.template',
