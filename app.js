@@ -1,5 +1,6 @@
 const app = {
   init(selectors) {
+    this.off = true
     this.flicks = []
     this.max = 0
     this.list = document.querySelector(selectors.listSelector)
@@ -137,7 +138,26 @@ const app = {
 
   filterSubmit(ev) {
     ev.preventDefault()
-    console.log("Hi")
+    const f = ev.target
+    const list = document.getElementById("flick-list")
+    const listItem = list.getElementsByTagName("li")
+    if(this.off) {
+      this.off = false
+      document.querySelector('#filterBtn').textContent = "🢀"
+      for (i = 0; i < this.flicks.length; i++) {
+        if ((this.flicks[i].name.toLowerCase()).indexOf(f.filterText.value.toLowerCase()) == -1) {
+          listItem[i].style.display = 'none'}
+      }
+    }
+    else {
+      this.off = true
+      document.querySelector('#filterBtn').textContent = "✔"
+      for (i = 0; i < this.flicks.length; i++) {
+        listItem[i].style.display = 'flex'
+      }
+
+    }
+    f.reset()
   },
 }
 
