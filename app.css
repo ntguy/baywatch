@@ -4,6 +4,7 @@ html {
   background: url(splode.jpg) no-repeat center center fixed; 
   background-size: cover;
 }
+
 body {
   background: transparent;
   padding-top: 1rem;
@@ -33,6 +34,24 @@ h1 small {
   height: 100px;
 }
 
+.input-group-button{
+  margin-left: .5rem;
+  background:    #4393db;
+  background:    linear-gradient(red, orange 50%, red);
+  border:        2px solid black;
+  border-radius: 50%;
+  padding:       8px 20px;
+  transition-duration: 0.6s;
+}
+
+.input-group-button:hover {
+  border-radius: 10%;
+}
+
+.edit {
+  float: left;
+}
+
 .list-container {
   background-color: whitesmoke;
 }
@@ -45,12 +64,18 @@ h1 small {
 }
 
 .flick.fav {
-  background-color: #62d9dd;
+  background-image: linear-gradient(to right, orange, red);
 }
 
 .flick-name {
   padding: 0 0.5rem;
+  color: White;
 }
+
+.flick {
+  background-color: black;
+}
+
 .flick .actions.button-group {
   margin-bottom: 0;
 }

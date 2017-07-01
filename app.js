@@ -34,18 +34,33 @@ const app = {
     this.flicks.splice(i, 1)
   },
 
+  changeFlick(flick,ev) {
+        const edit = prompt('Enter a new name:','New Flick Name');
+        const listItem = ev.target.closest('.flick')
+        listItem.querySelector('.flick-name').textContent = edit
+        flick.name = edit
+  },
+
   upFlick(flick, ev) {
     const listItem = ev.target.closest('.flick')
-    this.list.insertBefore(listItem, listItem.previousSibling)
-    const temp = this.flicks[0]
-    this.flicks[0] = this.flicks[0]
-    this.flicks[0] = temp
+    const i = this.flicks.indexOf(flick)
+    if(i > 0) {
+      const temp = this.flicks[i]
+      this.flicks[i] = this.flicks[i-1]
+      this.flicks[i-1] = temp 
+      this.list.insertBefore(listItem, listItem.previousSibling)
+    }
   },
 
   downFlick(flick, ev) {
     const listItem = ev.target.closest('.flick')
-    this.list.insertBefore(listItem, listItem.nextSibling.nextSibling)
-    
+    const i = this.flicks.indexOf(flick)
+    if(i < this.flicks.length - 1) {
+      const temp = this.flicks[i]
+      this.flicks[i] = this.flicks[i+1]
+      this.flicks[i+1] = temp       
+      this.list.insertBefore(listItem, listItem.nextSibling.nextSibling)
+    } 
   },
 
   renderListItem(flick) {
@@ -55,7 +70,7 @@ const app = {
     item
       .querySelector('.flick-name')
       .textContent = flick.name
-
+    
     item
       .querySelector('button.remove')
       .addEventListener(
@@ -75,6 +90,13 @@ const app = {
       .addEventListener(
         'click', 
         this.upFlick.bind(this, flick)
+      )
+
+     item
+      .querySelector('button.edit')
+      .addEventListener(
+        'click', 
+        this.changeFlick.bind(this, flick)
       )
 
       item
